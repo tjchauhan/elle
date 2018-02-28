@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+
+    <strong>Files:</strong><br>
+    <input id="file-picker" value="Choose image file" type="file" name="file" accept="image/*"/>
+    <div id="msg"></div>
+    <input id="audio-file" value="Choose audio file" type="file" name="file" accept="audio/*"/>
+    <input id="audio-file" value="Choose audio file" type="file" name="file" accept="audio/*"/>
+    <div id="msg"></div>
+    Language: <input type="text" name="lang"><br>
+    Term: <input type="text" name="term"><br>
+    Translation: <input type="text" name="translation"><br>
+    Difficulty: <input type="text" name="difficulty"><br>
+    Tag: <input type="text" name="tag"><br>
+    <input type="submit" value="Upload!" id="upload-button"/>
+</form>
+</body>
+</html>

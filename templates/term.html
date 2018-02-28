@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<body>
+
+<form id="term-form" enctype="multipart/form-data" action="{{ url_for('term') }}" method="POST">
+Term: <input type="text" name="term"><br>
+Difficulty: <input type="number" step=1 name="difficulty"><br>
+Files:<br>
+<input id="audio_file" value="Choose audio file" type="file" name="file" accept="image/*"/><br>
+<input id="image_file" value="Choose image file" type="file" name="file" accept="audio/*"/><br>
+<input id="submit" type="button" name="submit" value="submit">
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // click on button submit
+        $("#submit").on('click', function(){
+            // send ajax
+            var obj = {
+                term: $('input[name=term]').val(),
+                difficulty: $('input[name=difficulty]').val(),
+                audio: $('input[name=file]').val(),
+                image: $('input[name=file]').val()
+            }
+            console.log(obj);
+            $.ajax({
+                url: '/term', // url where to submit the request
+                type : "POST", // type of action POST || GET
+                dataType : 'json', // data type
+                data : obj // post data || get data
+            })
+        });
+    });
+
+</script>
+</body>
+</html>
